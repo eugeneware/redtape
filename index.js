@@ -13,7 +13,10 @@ function redtape(setup, teardown, asserts) {
     teardown = teardown || noop;
     asserts = asserts || {};
   }
-  return function (name, cb) {
+  return function (name, plan, cb) {
+    if (arguments.length === 2 && typeof plan === 'function') {
+      cb = plan;
+    }
     test(name, function (t) {
       var args;
       var _end = t.end;
@@ -41,6 +44,7 @@ function redtape(setup, teardown, asserts) {
       });
       setup(function (err) {
         if (err) return t.error(err);
+        if (typeof plan === 'number' && plan >= 0) t.plan(plan);
         args = Array.prototype.slice.call(arguments, 1);
         cb.apply(null, [t].concat(args));
       });
