@@ -9,12 +9,16 @@ function redtape(setup, teardown, asserts) {
     test(name, function (t) {
       var args;
       var _end = t.end;
+      var ended = false;
       t.end = function () {
+        if (ended) return;
+        ended = true;
         var _args = args;
         var _cb = function (err) {
-            if (err) throw err;
+            if (err) return t.error(err);
             _end.call(t);
         };
+        // pass setup args if needed
         if (teardown.length > 1) {
           _args = args.concat(_cb);
         } else {
@@ -28,7 +32,7 @@ function redtape(setup, teardown, asserts) {
         }
       });
       setup(function (err) {
-        if (err) throw err;
+        if (err) return t.error(err);
         args = Array.prototype.slice.call(arguments, 1);
         cb.apply(null, [t].concat(args));
       });

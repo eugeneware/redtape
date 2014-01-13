@@ -30,7 +30,9 @@
   "dependencies": {},
   "devDependencies": {
     "tape": "~2.3.2",
-    "faucet": "0.0.0"
+    "faucet": "0.0.0",
+    "rimraf": "~2.2.5",
+    "level": "~0.18.0"
   },
   "peerDependencies": {
     "tape": "~2.3.2"
