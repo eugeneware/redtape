@@ -4,7 +4,7 @@
   "description": "Simple setup/teardowns and assertion extensions for the tape testing framework",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/faucet test/*.js"
+    "test": "node_modules/.bin/tape test/*.js"
   },
   "repository": {
     "type": "git",
