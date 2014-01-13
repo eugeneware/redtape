@@ -2,9 +2,17 @@ var test = require('tape');
 module.exports = redtape;
 function redtape(setup, teardown, asserts) {
   var noop = function (cb) { (typeof cb === 'function') && cb() };
-  setup = setup || noop;
-  teardown = teardown || noop;
-  asserts = asserts || {};
+  var options = {};
+  if (arguments.length === 1 && typeof arguments[0] === 'object') {
+    options = setup;
+    setup = options.setup || options.beforeEach || noop;
+    teardown = options.teardown || options.afterEach || noop;
+    asserts = options.asserts || {};
+  } else {
+    setup = setup || noop;
+    teardown = teardown || noop;
+    asserts = asserts || {};
+  }
   return function (name, cb) {
     test(name, function (t) {
       var args;
