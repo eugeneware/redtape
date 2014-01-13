@@ -15,15 +15,6 @@ function afterEach(num, cb) {
   });
 }
 
-var asserts = {
-  like: function (str, reg, msg) {
-    this.ok(reg.test(str), msg);
-  },
-  notlike: function (str, reg, msg) {
-    this.ok(!reg.test(str), msg);
-  }
-};
-
 var redtest = redtape({ setup: beforeEach, teardown: afterEach });
 redtest('plan: should support plan execution syntax', 3, function (t, num) {
   t.equals(num, 42);
