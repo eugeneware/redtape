@@ -1,0 +1,38 @@
+{
+  "name": "redtape",
+  "version": "0.0.1",
+  "description": "Simple setup/teardowns and assertion extensions for the tape testing framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/faucet test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eugeneware/redtape"
+  },
+  "keywords": [
+    "tape",
+    "tap",
+    "test",
+    "testing",
+    "setup",
+    "teardown",
+    "before",
+    "beforeEach",
+    "after",
+    "afterEach"
+  ],
+  "author": "Eugene Ware <eugene@noblesamurai.com>",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/eugeneware/redtape/issues"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "tape": "~2.3.2",
+    "faucet": "0.0.0"
+  },
+  "peerDependencies": {
+    "tape": "~2.3.2"
+  }
+}
