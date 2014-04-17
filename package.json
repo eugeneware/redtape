@@ -27,14 +27,8 @@
   "bugs": {
     "url": "https://github.com/eugeneware/redtape/issues"
   },
-  "dependencies": {
-    "tape": "^2.12.3"
-  },
   "devDependencies": {
-    "tape": "~2.3.2",
-    "faucet": "0.0.0",
-    "rimraf": "~2.2.5",
-    "level": "~0.18.0"
+    "tape": "^2.12.3"
   },
   "peerDependencies": {
     "tape": "*"
