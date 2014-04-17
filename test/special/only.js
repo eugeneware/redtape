@@ -1,4 +1,4 @@
-var redtape = require('..');
+var redtape = require('../..');
 
 var testCount = 0;
 var test = redtape();

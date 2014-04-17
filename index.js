@@ -54,6 +54,7 @@ function redtape(setup, teardown, asserts) {
 
   var _testCase = testCase.bind(null, test);
   _testCase.only = testCase.bind(null, test.only);
+  _testCase.ignore = function () {};
 
   return _testCase;
 }
