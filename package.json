@@ -1,6 +1,6 @@
 {
   "name": "redtape",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Simple setup/teardowns and assertion extensions for the tape testing framework",
   "main": "index.js",
   "scripts": {
