@@ -263,3 +263,26 @@ test('this test will also not run', function (t) {
   t.end();
 });
 ```
+
+## Ignore a single test
+
+Similarly, you can ignore a test by adding the `.ignore` suffix:
+
+``` js
+var redtape = require('redtape');
+
+var testCount = 0;
+var test = redtape();
+
+test.ignore('this test will not run', function (t) {
+  testCount++;
+  t.fail('this test should never run');
+  t.end();
+});
+
+test('this test case will run', function (t) {
+  testCount++;
+  t.equal(testCount, 1, 'only one test should run');
+  t.end();
+});
+```
