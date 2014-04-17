@@ -4,7 +4,7 @@
   "description": "Simple setup/teardowns and assertion extensions for the tape testing framework",
   "main": "index.js",
   "scripts": {
-    "test": "node_modules/.bin/tape test/*.js"
+    "test": "node test/*.js"
   },
   "repository": {
     "type": "git",
@@ -27,7 +27,9 @@
   "bugs": {
     "url": "https://github.com/eugeneware/redtape/issues"
   },
-  "dependencies": {},
+  "dependencies": {
+    "tape": "^2.12.3"
+  },
   "devDependencies": {
     "tape": "~2.3.2",
     "faucet": "0.0.0",

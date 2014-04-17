@@ -233,3 +233,33 @@ test('I should be able to read a file', function (t, db) {
   });
 });
 ```
+
+## Run only a single test
+
+Using the `.only` variant will only run that particular test case:
+
+``` js
+var redtape = require('redtape');
+
+var testCount = 0;
+var test = redtape();
+
+test('this test will not run', function (t) {
+  testCount++;
+  t.fail('this test should never run');
+  t.end();
+});
+
+// only this test will run
+test.only('can use a simple after each function with 1 callback', function (t) {
+  testCount++;
+  t.equal(testCount, 1, 'only test should be run');
+  t.end();
+});
+
+test('this test will also not run', function (t) {
+  testCount++;
+  t.fail('this test should also never run');
+  t.end();
+});
+```

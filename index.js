@@ -13,8 +13,9 @@ function redtape(setup, teardown, asserts) {
     teardown = teardown || noop;
     asserts = asserts || {};
   }
-  return function (name, plan, cb) {
-    if (arguments.length === 2 && typeof plan === 'function') {
+
+  function testCase(test, name, plan, cb) {
+    if (arguments.length === 3 && typeof plan === 'function') {
       cb = plan;
     }
     test(name, function (t) {
@@ -50,4 +51,9 @@ function redtape(setup, teardown, asserts) {
       });
     });
   }
+
+  var _testCase = testCase.bind(null, test);
+  _testCase.only = testCase.bind(null, test.only);
+
+  return _testCase;
 }
